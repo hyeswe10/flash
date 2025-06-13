@@ -24,7 +24,7 @@ const App = () => {
       {/* 앞이 true면 뒤에가 실행되는 &&연산자 사용 */}
       {!category && <Category cardData={mockData.categories} click={handleClick}/>}
       {category && !learningMode && <FlashCard cardData={category} click={handleClick} learn={handleLearn}/>}
-      {learningMode && !exitMode && <CardLearn  cardData={category.flashcards} result={handleResult} click={handleClick}/>}
+      {learningMode && !exitMode && <CardLearn  cardData={category.flashcards} result={handleResult}/>}
       {exitMode && <Result click={()=>{
         setCategory(null);
         setLearningMode(false);

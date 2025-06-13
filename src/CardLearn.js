@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const CardLearn = ({cardData,result,click}) => {
+const CardLearn = ({cardData,result}) => {
     const [currentIdx,setCurrentIdx] = useState(0);
     const [isOpen,setIsOpen] = useState(false);
     const nextBtn = ()=>{
@@ -17,7 +17,7 @@ const CardLearn = ({cardData,result,click}) => {
             <div>{isOpen ? <p>답변 : {cardData[currentIdx].answer}</p> : "" }</div>
             <button onClick={()=>{setIsOpen(!isOpen)}}>{isOpen ? "답변닫기" : "답변보기"}</button>
             <button onClick={nextBtn}>{currentIdx+1 === cardData.length ? "결과보기" : "다음문제"}</button>
-            <button onClick={click}>학습종료</button>
+            <button onClick={()=>{result(true)}}>학습종료</button>
         </div>
     );
 };
